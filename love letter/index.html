@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Surat Cinta Romantis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ffdde1 0%, #fce4ec 100%);
+      font-family: 'Poppins', sans-serif;
+      color: #a90037;
+      line-height: 1.7;
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      user-select: none;
+    }
+
+    .page {
+      display: none;
+      max-width: 700px;
+      width: 100%;
+      background-color: #fff0f5;
+      padding: 40px 30px;
+      border-radius: 30px;
+      box-shadow: 0 14px 40px rgba(217, 24, 104, 0.25);
+      animation: fadeIn 0.6s ease forwards;
+      position: relative;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Merriweather', serif;
+      font-weight: 700;
+      font-size: 3em;
+      color: #d81e5b;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px #ff89ac;
+      user-select: text;
+    }
+
+    p {
+      font-size: 1.15em;
+      text-align: justify;
+      margin-bottom: 1.5em;
+      user-select: text;
+    }
+
+    input[type="password"] {
+      padding: 14px 18px;
+      font-size: 1.1em;
+      border-radius: 25px;
+      border: 2px solid #d81e5b;
+      width: 280px;
+      max-width: 90%;
+      outline: none;
+      transition: border-color 0.3s ease;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+    }
+    input[type="password"]:focus {
+      border-color: #ff4081;
+      box-shadow: 0 0 12px #ff4081;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 16px 38px;
+      font-size: 1.2em;
+      background-color: #d81e5b;
+      color: white;
+      border: none;
+      border-radius: 40px;
+      cursor: pointer;
+      box-shadow: 0 7px 20px rgba(216, 30, 91, 0.6);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      user-select: none;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+    }
+    button:hover {
+      background-color: #ff4081;
+      transform: scale(1.07);
+    }
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .img-certificate {
+      max-width: 100%;
+      margin: 30px 0;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(216, 30, 91, 0.35);
+      user-select: none;
+    }
+
+    .error {
+      color: #e53935;
+      margin-top: 14px;
+      font-weight: 700;
+      font-style: italic;
+      min-height: 26px;
+      user-select: none;
+    }
+
+    .signature {
+      margin-top: 35px;
+      font-family: 'Merriweather', serif;
+      font-size: 1.3em;
+      color: #ad1457;
+      font-style: italic;
+      user-select: text;
+    }
+
+    /* Animasi fadeIn */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Tombol komentar WA kecil di bawah */
+    .btn-whatsapp {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50px;
+      padding: 15px 25px;
+      font-size: 1.3em;
+      font-weight: 700;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.6);
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-whatsapp:hover {
+      background-color: #1ebe57;
+      transform: scale(1.1);
+    }
+    .btn-whatsapp:active {
+      transform: scale(0.95);
+    }
+
+    .btn-whatsapp svg {
+      width: 24px;
+      height: 24px;
+      fill: white;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Halaman Password -->
+  <div class="page active" id="page-password">
+    <h1>💌 Secret Letter</h1>
+    <p>Surat ini rahasia. Masukkan password untuk membukanya.</p>
+    <input type="password" id="passwordInput" placeholder="Enter password..." autocomplete="off" />
+    <br />
+    <button onclick="checkPassword()">🔓 Unlock</button>
+    <p class="error" id="errorMsg"></p>
+  </div>
+
+  <!-- Halaman Pertama -->
+  <div class="page" id="page-1">
+    <h1>Sebelumnya, untuk <br /><strong>Arya Sheva Pratama</strong></h1>
+    <p>
+      Thank you for everything you have done for me all this time, sayang. Makasih karena udah banyak berjuang buat aku, banyak usahain sesuatu untuk aku, banyak ngasih pengertian ke aku, banyak kasih afeksi ke aku dan merayakan semua baik dan jeleknya aku. Makasih karena udah jadi pacar yang baik yaa? Kamu takdir yang paling aku syukuri tahun ini, semoga kita bisa sampai selamanya ya? I love you more than words can say.
+    </p>
+    <img src="sertifikat.jpg" alt="Best Boyfriend Ever Certificate" class="img-certificate" />
+    <br />
+    <button onclick="nextPage()">Lanjut ➡️</button>
+  </div>
+
+  <!-- Halaman Kedua -->
+  <div class="page" id="page-2">
+    <h1>My Forever Love</h1>
+    <p>
+      Terimakasih katanya
+    </p>
+    <p>
+      Saat itu aku adalah seorang yang penuh goresan luka yang cukup dalam<br />
+      Seorang penuh duka yang merasa dicabik-cabik inti hatinya<br />
+      Hingga akhirnya aku memutuskan untuk menahan<br />
+      -menahan segala sesuatu yang akan memasuki ruang itu-
+    </p>
+    <p>
+      Aku terdiam sendiri diruang gelap<br />
+      Di dekap sunyi dan enggan di usik<br />
+      Kubangun dinding yang begitu tinggi nan kokoh
+    </p>
+    <p>
+      Setelah sekian banyak uluran tangan<br />
+      yang ku abaikan saat itu pula kau datang<br />
+      Kau datang dengan tatap dan senyum<br />
+      yang tak pernah ku dapat<br />
+      Sempat terbuai tapi aku tetap enggan<br />
+      tuk melangkah saat tangan itu kau ulurkan<br />
+      Namun dengan tenang kau tersenyum<br />
+      dan tetap menunggu hingga aku mampu
+    </p>
+    <p>
+      Ketika itu aku sangat merasa di lihat dan<br />
+      saat itu pula kau ku temukan<br />
+      Ternyata kau orangnya<br />
+      Ternyata kaulah jawabnya
+    </p>
+    <p>
+      Terimakasih sempat yang kau ambil untuk<br />
+      menyelamatkanku dari ruang itu, menarikku dari keadaan yang kacau<br />
+      Terimakasih atas genggaman erat yang kau beri saat takut itu kembali menyerang<br />
+      Terimakasih atas segala bentukku yang kau selalu terima<br />
+      dengan senyum tulus juga tatap hangat itu
+    </p>
+    <p>
+      Maka saat ini aku memutuskan kembali hidup membiarkan diriku untuk jatuh sejatuh jatuhnya, sembari berjalan merentangkan tangan di perjalanan cintaku bersamu<br />
+      -seorang yang begitu tulus hatinya mengembalikanku-
+    </p>
+    <p>
+      Kembali ku ucapkan terimakasih padamu<br />
+      Terimakasih telah sudi membersamaiku, terimakasih telah merayakanku<br />
+      Terimakasih cintaku.
+    </p>
+    <p class="signature">
+      Yours forever,<br />
+      [Sasa]
+    </p>
+  </div>
+
+  <!-- Tombol WhatsApp -->
+  <a 
+    href="https://wa.me/6282142744942?text=Halo%20Sasa!%20Aku%20ingin%20berkomentar%20tentang%20suratmu%20"
+    target="_blank" 
+    rel="noopener" 
+    class="btn-whatsapp" 
+    aria-label="Kirim komentar ke WhatsApp"
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M20.52 3.48A11.849 11.849 0 0012 0C5.372 0 0 5.373 0 12c0 2.113.556 4.068 1.52 5.82L0 24l6.364-1.523A11.853 11.853 0 0012 24c6.627 0 12-5.373 12-12 0-3.213-1.25-6.208-3.48-8.52zm-8.52 18c-1.937 0-3.81-.555-5.396-1.596l-.386-.244-3.766.9.949-3.676-.25-.393A9.936 9.936 0 012 12c0-5.514 4.486-10 10-10 2.668 0 5.18 1.04 7.07 2.928a9.906 9.906 0 012.93 7.07c0 5.514-4.487 10-10 10zm5.383-7.96c-.297-.149-1.758-.868-2.031-.967-.273-.099-.47-.149-.668.149s-.766.967-.94 1.165c-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.134.298-.347.446-.52.149-.173.198-.298.298-.496.099-.198.05-.372-.025-.52-.074-.148-.668-1.612-.916-2.206-.242-.579-.487-.5-.668-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.02-1.04 2.48 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.26.489 1.691.625.71.226 1.357.194 1.87.118.571-.085 1.758-.718 2.006-1.41.248-.69.248-1.282.173-1.41-.074-.128-.272-.198-.57-.347z"/>
+    </svg>
+    Kirim Komentar
+  </a>
+
+  <script>
+    let currentPage = 1;
+
+    function checkPassword() {
+      const input = document.getElementById('passwordInput').value.trim();
+      const correctPassword = "iloveyou"; 
+
+      const errorMsg = document.getElementById('errorMsg');
+      errorMsg.textContent = "";
+
+      if (input.toLowerCase() === correctPassword.toLowerCase()) {
+        document.getElementById('page-password').classList.remove('active');
+        document.getElementById('page-1').classList.add('active');
+        currentPage = 1;
+      } else {
+        errorMsg.textContent = "Password salah nih. Coba lagi ya 😉";
+      }
+    }
+
+    function nextPage() {
+      if (currentPage === 1) {
+        document.getElementById('page-1').classList.remove('active');
+        document.getElementById('page-2').classList.add('active');
+        currentPage = 2;
+      }
+    }
+  </script>
+  
+</body>
+</html>
